@@ -1,0 +1,15 @@
+{
+  "name": "usdthoy",
+  "version": "1.0.0",
+  "description": "Proyecto para trackear los diferentes precios de stablecoins vs el peso Argentino",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
