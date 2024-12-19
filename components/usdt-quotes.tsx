@@ -62,7 +62,7 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
             })}
           </p>
         </div>
-        <HistoricalPriceChart />
+
       </div>
 
       <Card className="glass-card gradient-border">
