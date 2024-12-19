@@ -18,19 +18,18 @@ interface USDTQuotesProps {
 }
 
 export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
-  const [sortBy, setSortBy] = useState<"ask" | "bid" | "spread">("ask");
-  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+  const [sortBy, setSortBy] = useState<'ask' | 'bid' | 'spread'>('ask');
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
-  const handleSort = (type: "ask" | "bid" | "spread") => {
-    if (sortBy === type) {
-      // Toggle the sort direction if the same column is clicked
-      setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
+  function handleSort(field: 'ask' | 'bid' | 'spread') {
+    if (sortBy === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
     } else {
-      // Set the new column and default to ascending order
-      setSortBy(type);
-      setSortDirection("asc");
+      setSortBy(field);
+      setSortDirection('asc');
     }
-  };
+  }
+
 
   // Sort quotes in the client to avoid SSR issues
   const quotes = useMemo(() => {
