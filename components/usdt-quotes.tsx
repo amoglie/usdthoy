@@ -73,12 +73,13 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
         </CardHeader>
         <CardContent className="p-0 overflow-x-auto">
           <div className="rounded-md border border-gray-700 bg-[#2A2A2A] overflow-hidden">
+            {/* Desktop Table Headers and Content */}
             <div className="hidden md:block">
               <div className="grid grid-cols-[1fr,auto,auto,auto] items-center gap-4 p-4 text-sm font-medium text-gray-200 border-b border-gray-700">
                 <div>Exchange</div>
-                <div>Comprá</div>
-                <div>Vendé</div>
-                <div>Spread</div>
+                <div>Comprá&nbsp;&nbsp;&nbsp;</div>
+                <div>Vendé&nbsp;&nbsp;&nbsp;</div>
+                <div>Spread&nbsp;&nbsp;&nbsp;</div>
               </div>
               {initialQuotes.map((quote) => (
                 <div
@@ -95,13 +96,25 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
                       {quote.exchange}
                     </span>
                   </div>
-                  <span className="text-gray-300">
+                  <span
+                    className={
+                      quote.totalAsk === bestBuy.totalAsk
+                        ? "font-semibold text-purple-400"
+                        : "text-gray-300"
+                    }
+                  >
                     $
                     {quote.totalAsk.toLocaleString("es-AR", {
                       minimumFractionDigits: 2,
                     })}
                   </span>
-                  <span className="text-gray-300">
+                  <span
+                    className={
+                      quote.totalBid === bestSell.totalBid
+                        ? "font-semibold text-red-400"
+                        : "text-gray-300"
+                    }
+                  >
                     $
                     {quote.totalBid.toLocaleString("es-AR", {
                       minimumFractionDigits: 2,
@@ -113,6 +126,65 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
                       minimumFractionDigits: 2,
                     })}
                   </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile View */}
+            <div className="md:hidden divide-y divide-gray-700">
+              {initialQuotes.map((quote) => (
+                <div key={quote.exchange} className="p-3">
+                  <div className="flex items-center gap-2 mb-3">
+                    <img
+                      src={quote.logo}
+                      alt={quote.exchange}
+                      className="h-5 w-5"
+                    />
+                    <span className="text-gray-200 font-medium text-sm">
+                      {quote.exchange}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="space-y-0.5">
+                      <div className="text-gray-400 text-xs">Comprá:</div>
+                      <div
+                        className={`${
+                          quote.totalAsk === bestBuy.totalAsk
+                            ? "text-purple-400 font-medium"
+                            : "text-gray-300"
+                        } text-sm`}
+                      >
+                        $
+                        {quote.totalAsk.toLocaleString("es-AR", {
+                          minimumFractionDigits: 2,
+                        })}
+                      </div>
+                    </div>
+                    <div className="space-y-0.5">
+                      <div className="text-gray-400 text-xs">Vendé:</div>
+                      <div
+                        className={`${
+                          quote.totalBid === bestSell.totalBid
+                            ? "text-red-400 font-medium"
+                            : "text-gray-300"
+                        } text-sm`}
+                      >
+                        $
+                        {quote.totalBid.toLocaleString("es-AR", {
+                          minimumFractionDigits: 2,
+                        })}
+                      </div>
+                    </div>
+                    <div className="space-y-0.5">
+                      <div className="text-gray-400 text-xs">Spread:</div>
+                      <div className="text-gray-300 text-sm">
+                        $
+                        {quote.spread.toLocaleString("es-AR", {
+                          minimumFractionDigits: 2,
+                        })}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

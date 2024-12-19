@@ -108,7 +108,7 @@ export default function DashboardPage() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center justify-between px-4">
           <span className="font-bold">USDThoy</span>
-          <span className="font-bold"> Hecho con ❤️ por JAMS 🇦🇷</span>
+          <span className="font-bold"> Hecho con ❤️ por <a href="https://jams.agency?utm_source=usdthoy">JAMS</a> 🇦🇷</span>
         </div>
       </header>
       
@@ -140,7 +140,7 @@ export default function DashboardPage() {
       <footer className="border-t border-gray-800 py-6 md:py-0">
         <div className="container flex h-14 items-center justify-between px-4">
           <p className="text-sm text-gray-400">
-          Hecho con ❤️ por JAMS 🇦🇷
+          Hecho con ❤️ por <a href="https://jams.agency?utm_source=usdthoy">JAMS</a> 🇦🇷
           </p>
           <p className="text-sm text-gray-400">
             hey@JAMS.agency

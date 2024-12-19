@@ -13,11 +13,11 @@ interface QuoteCardProps {
 }
 
 const TYPE_STYLES = {
-  oficial: 'from-blue-500/20 to-blue-600/20 border-blue-500/50',
+  oficial: 'from-red-200/20 to-red-500/20 border-red-500/50',
   blue: 'from-indigo-500/20 to-indigo-600/20 border-indigo-500/50',
-  mep: 'from-emerald-500/20 to-emerald-600/20 border-emerald-500/50',
+  mep: 'from-green-200/20 to-green-200/20 border-green-500/50',
   ccl: 'from-violet-500/20 to-violet-600/20 border-violet-500/50',
-  tarjeta: 'from-amber-500/20 to-amber-600/20 border-amber-500/50',
+  tarjeta: 'from-yellow-500/20 to-yellow-600/20 border-yellow-500/50',
 }
 
 export function QuoteCard({
@@ -37,7 +37,7 @@ export function QuoteCard({
 
   const gradientClass = TYPE_STYLES[type];
   return (
-    <Card className={`overflow-hidden border border-gray-600 bg-[#1E1E1E] ${gradientClass} transition-all duration-300 hover:scale-[1.02]`}>
+    <Card className={`overflow-hidden border bg-[#1E1E1E] ${gradientClass} transition-all duration-300 hover:scale-[1.02]`}>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-sm font-medium flex items-center gap-2 text-gray-100">
           {logo ? (
