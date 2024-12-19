@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
-import './globals.css'
-
-export const metadata: Metadata = {
-  title: 'USDThoy - Cotizaciones en tiempo real',
-  description: 'Cotizaciones de USDT, dólares financieros y criptomonedas en tiempo real',
-}
+import "./globals.css";
+export const metadata = {
+  title: "USDThoy - Cotizaciones en tiempo real",
+  description: "Cotizaciones de USDT, dólares financieros y criptomonedas en tiempo real",
+};
 
 export default function RootLayout({
   children,
@@ -18,7 +17,7 @@ export default function RootLayout({
           <main className="flex-1 py-6">{children}</main>
         </div>
       </body>
+
     </html>
   );
 }
-

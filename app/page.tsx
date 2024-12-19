@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Bitcoin, DollarSign, ArrowUpIcon, ArrowDownIcon } from 'lucide-react'
 import { ErrorFallback } from "@/components/error-fallback"
 
+
 export const revalidate = 60 // Revalidate every minute
 
 async function USDTQuotesSection() {
