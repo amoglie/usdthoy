@@ -1,0 +1,29 @@
+[33mcommit c29e67e864da26fc202299231ff414775ca085a9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;32mbackup-main[m[33m)[m
+Author: amoglie <agustin.moglie89@gmail.com>
+Date:   Thu Dec 19 16:12:59 2024 +0000
+
+    Remove .next directory from repository and update .gitignore
+
+[33mcommit e4106f5aaaa59922df466f845dd7f470e6e4a37c[m
+Author: amoglie <agustin.moglie89@gmail.com>
+Date:   Thu Dec 19 16:11:38 2024 +0000
+
+    Remove large files and update .gitignore
+
+[33mcommit 3656800e9dd98ea88916f3cbfdf1208c4e9c6617[m
+Author: amoglie <agustin.moglie89@gmail.com>
+Date:   Thu Dec 19 16:09:22 2024 +0000
+
+    Remove node_modules from repository and add to .gitignore
+
+[33mcommit 60b937b002404d84fe1ebd6a42b56a2fce02ba8d[m
+Author: amoglie <agustin.moglie89@gmail.com>
+Date:   Thu Dec 19 16:03:13 2024 +0000
+
+    layout updated, historical graph and API added, mobile view refactorized
+
+[33mcommit 57e4586e8e930b35ac372d8f5602f933daf7c4fd[m
+Author: amoglie <agustin.moglie89@gmail.com>
+Date:   Mon Dec 16 22:44:40 2024 +0000
+
+    Fix: ajustar diseño USDT y cotizaciones para ocupar todo el ancho

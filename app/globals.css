@@ -49,6 +49,7 @@
     --input: 240 3.7% 15.9%;
     --ring: 142.4 71.8% 29.2%;
   }
+
 }
  
 @layer base {
@@ -56,7 +57,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-gray-200;
     font-family: 'Space Grotesk', sans-serif;
   }
 }
@@ -89,5 +90,10 @@
   );
   z-index: -1;
   border-radius: inherit;
+}
+
+.card {
+  background-color: hsl(var(--card, 0 0% 13%));
+  border: 1px solid hsl(var(--border, 240 5.9% 90%));
 }
 
