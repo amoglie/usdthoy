@@ -21,6 +21,7 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
   const [sortBy, setSortBy] = useState<'ask' | 'bid' | 'spread'>('ask');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
+  // Define la función handleSort
   function handleSort(field: 'ask' | 'bid' | 'spread') {
     if (sortBy === field) {
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
@@ -30,23 +31,20 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
     }
   }
 
-
-  // Sort quotes in the client to avoid SSR issues
   const quotes = useMemo(() => {
-    const sorted = [...initialQuotes].sort((a, b) => {
-      const modifier = sortDirection === "asc" ? 1 : -1;
+    const modifier = sortDirection === 'asc' ? 1 : -1;
+    return [...initialQuotes].sort((a, b) => {
       switch (sortBy) {
-        case "ask":
+        case 'ask':
           return (a.totalAsk - b.totalAsk) * modifier;
-        case "bid":
+        case 'bid':
           return (a.totalBid - b.totalBid) * modifier;
-        case "spread":
+        case 'spread':
           return (a.spread - b.spread) * modifier;
         default:
           return 0;
       }
     });
-    return sorted;
   }, [initialQuotes, sortBy, sortDirection]);
 
   const bestBuy = useMemo(
@@ -68,7 +66,7 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
             {bestBuy.exchange}
           </p>
           <p className="text-xl md:text-2xl font-bold text-purple-300">
-            ${bestBuy.totalAsk.toLocaleString("es-AR", { minimumFractionDigits: 2 })}
+            ${bestBuy.totalAsk.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
           </p>
         </div>
         <div className="bg-red-900/30 rounded-lg p-3 border border-red-500/30">
@@ -77,7 +75,7 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
             {bestSell.exchange}
           </p>
           <p className="text-xl md:text-2xl font-bold text-red-300">
-            ${bestSell.totalBid.toLocaleString("es-AR", { minimumFractionDigits: 2 })}
+            ${bestSell.totalBid.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
           </p>
         </div>
         <HistoricalPriceChart />
@@ -95,21 +93,21 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
               <div className="grid grid-cols-[1fr,auto,auto,auto] items-center gap-4 p-4 text-sm font-medium text-gray-200 border-b border-gray-700">
                 <div>Exchange</div>
                 <button
-                  onClick={() => handleSort("ask")}
+                  onClick={() => handleSort('ask')}
                   className="flex items-center gap-1 hover:text-primary transition-colors"
                 >
                   Comprá
                   <ArrowUpDown className="h-4 w-4" />
                 </button>
                 <button
-                  onClick={() => handleSort("bid")}
+                  onClick={() => handleSort('bid')}
                   className="flex items-center gap-1 hover:text-primary transition-colors"
                 >
                   Vendé
                   <ArrowUpDown className="h-4 w-4" />
                 </button>
                 <button
-                  onClick={() => handleSort("spread")}
+                  onClick={() => handleSort('spread')}
                   className="flex items-center gap-1 hover:text-primary transition-colors"
                 >
                   Spread
@@ -126,13 +124,13 @@ export function USDTQuotes({ quotes: initialQuotes }: USDTQuotesProps) {
                     <span className="text-gray-200 font-medium">{quote.exchange}</span>
                   </div>
                   <span className={quote.totalAsk === bestBuy.totalAsk ? "font-semibold text-purple-400" : "text-gray-300"}>
-                    ${quote.totalAsk.toLocaleString("es-AR", { minimumFractionDigits: 2 })}
+                    ${quote.totalAsk.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
                   </span>
                   <span className={quote.totalBid === bestSell.totalBid ? "font-semibold text-red-400" : "text-gray-300"}>
-                    ${quote.totalBid.toLocaleString("es-AR", { minimumFractionDigits: 2 })}
+                    ${quote.totalBid.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
                   </span>
                   <span className="text-gray-300">
-                    ${quote.spread.toLocaleString("es-AR", { minimumFractionDigits: 2 })}
+                    ${quote.spread.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
                   </span>
                 </div>
               ))}
